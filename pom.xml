@@ -126,12 +126,16 @@
       <artifactId>google-auth-library-oauth2-http</artifactId>
     </dependency>
     <!-- add netty to build so it works with confluent connect -->
-    <dependency>
-      <groupId>io.grpc</groupId>
-      <artifactId>grpc-netty</artifactId>
-      <version>1.54.0</version>
-    </dependency>
-
+<!--    <dependency>-->
+<!--      <groupId>io.grpc</groupId>-->
+<!--      <artifactId>grpc-netty</artifactId>-->
+<!--      <version>1.70.0</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>io.grpc</groupId>-->
+<!--      <artifactId>grpc-core</artifactId>-->
+<!--      <version>1.70.0</version>-->
+<!--    </dependency>-->
 
     <!--  Provided dependencies  -->
     <dependency>

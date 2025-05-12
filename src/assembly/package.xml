@@ -38,7 +38,23 @@
         <dependencySet>
             <outputDirectory>/lib</outputDirectory>
             <includes>
-                <include>io.grpc:grpc-netty</include>
+                <include>*</include>
+<!--                <include>io.grpc:grpc-core</include>-->
+<!--                <include>io.grpc:grpc-util</include>-->
+<!--                <include>io.grpc:grpc-alts</include>-->
+<!--                <include>io.grpc:grpc-api</include>-->
+<!--                <include>io.grpc:grpc-auth</include>-->
+<!--                <include>io.grpc:grpc-context</include>-->
+<!--                <include>io.grpc:grpc-googleapis</include>-->
+<!--                <include>io.grpc:grpc-grpclb</include>-->
+<!--                <include>io.grpc:grpc-inprocess</include>-->
+<!--                <include>io.grpc:grpc-netty-shaded</include>-->
+<!--                <include>io.grpc:grpc-protobuf</include>-->
+<!--                <include>io.grpc:grpc-stub</include>-->
+<!--                <include>io.grpc:inprocess</include>-->
+<!--                <include>io.grpc:xds</include>-->
+<!--                <include>com.google.api:gax</include>-->
+<!--                <include>com.google.api:gax-grpc</include>-->
             </includes>
             <unpack>false</unpack>
             <scope>runtime</scope>

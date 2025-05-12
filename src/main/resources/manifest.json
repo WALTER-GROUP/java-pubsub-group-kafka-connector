@@ -1,6 +1,6 @@
 {
   "name" : "kafka-pubsub-connector",
-  "version" : "1.2.0",
+  "version" : "1.2.1",
   "title" : "Pubsub Connector for Confluent",
   "description" : "The connector runs on Apache Kafka Connect Clusters to sink data from Kafka\ntopics to Google PubSub",
   "owner" : {
