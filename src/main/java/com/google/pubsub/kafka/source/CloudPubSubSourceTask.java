@@ -42,6 +42,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.connect.data.Field;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
@@ -55,7 +56,7 @@ import org.threeten.bp.Duration;
 
 /**
  * A {@link SourceTask} used by a {@link CloudPubSubSourceConnector} to write messages to <a
- * href="http://kafka.apache.org/">Apache Kafka</a>. Due to at-last-once semantics in Google Cloud
+ * href="http://kafka.apache.org/">Apache Kafka</a>. Due to at-least-once semantics in Google Cloud
  * Pub/Sub duplicates in Kafka are possible.
  */
 public class CloudPubSubSourceTask extends SourceTask {
@@ -364,5 +365,10 @@ public class CloudPubSubSourceTask extends SourceTask {
         },
         MoreExecutors.directExecutor());
     log.trace("Committed {}", ackId);
+  }
+
+  @Override
+  public void commitRecord(SourceRecord record, RecordMetadata metadata) {
+    this.commitRecord(record);
   }
 }
