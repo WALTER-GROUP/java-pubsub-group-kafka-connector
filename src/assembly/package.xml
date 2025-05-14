@@ -5,14 +5,15 @@
         <format>zip</format>
     </formats>
     <includeBaseDirectory>true</includeBaseDirectory>
+    <!-- Copy manifest.json -->
+    <files>
+        <file>
+            <source>${project.basedir}/src/main/resources/manifest.json</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+    </files>
     <fileSets>
-        <fileSet>
-            <directory>${project.build.directory}</directory>
-            <outputDirectory>lib</outputDirectory>
-            <includes>
-                <include>${artifactId}-${version}.jar</include>
-            </includes>
-        </fileSet>
+        <!-- Copy image -->
         <fileSet>
             <directory>${project.basedir}/src/main/resources/assets</directory>
             <outputDirectory>assets</outputDirectory>
@@ -20,13 +21,15 @@
                 <include>*.png</include>
             </includes>
         </fileSet>
+        <!-- Copy shaded JAR and dependencies -->
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>/lib</outputDirectory>
+            <includes>
+                <include>*-shaded.jar</include>
+            </includes>
+        </fileSet>
     </fileSets>
-    <files>
-        <file>
-            <source>${project.basedir}/src/main/resources/manifest.json</source>
-            <outputDirectory>/</outputDirectory>
-        </file>
-    </files>
     <dependencySets>
         <dependencySet>
             <outputDirectory>/lib</outputDirectory>
@@ -34,30 +37,6 @@
             <excludes>
                 <exclude>*</exclude>
             </excludes>
-        </dependencySet>
-        <dependencySet>
-            <outputDirectory>/lib</outputDirectory>
-            <includes>
-                <include>*</include>
-<!--                <include>io.grpc:grpc-core</include>-->
-<!--                <include>io.grpc:grpc-util</include>-->
-<!--                <include>io.grpc:grpc-alts</include>-->
-<!--                <include>io.grpc:grpc-api</include>-->
-<!--                <include>io.grpc:grpc-auth</include>-->
-<!--                <include>io.grpc:grpc-context</include>-->
-<!--                <include>io.grpc:grpc-googleapis</include>-->
-<!--                <include>io.grpc:grpc-grpclb</include>-->
-<!--                <include>io.grpc:grpc-inprocess</include>-->
-<!--                <include>io.grpc:grpc-netty-shaded</include>-->
-<!--                <include>io.grpc:grpc-protobuf</include>-->
-<!--                <include>io.grpc:grpc-stub</include>-->
-<!--                <include>io.grpc:inprocess</include>-->
-<!--                <include>io.grpc:xds</include>-->
-<!--                <include>com.google.api:gax</include>-->
-<!--                <include>com.google.api:gax-grpc</include>-->
-            </includes>
-            <unpack>false</unpack>
-            <scope>runtime</scope>
         </dependencySet>
     </dependencySets>
 </assembly>
